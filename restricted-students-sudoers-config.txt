@@ -1,0 +1,18 @@
+place at bottom of /etc/sudoer with visudo
+
+%restricted_students ALL=(ALL) NOPASSWD: /bin/systemctl status mysql,\
+                                         /usr/sbin/service apache2 start,\
+                                         /usr/sbin/service apache2 stop,\
+                                         /usr/sbin/service apache2 restart,\
+                                         /usr/sbin/service apache2 status,\
+                                         /usr/bin/mysql,\
+                                         /usr/bin/mysqladmin,\
+                                         /usr/sbin/service mysql start,\
+                                         /usr/sbin/service mysql stop,\
+                                         /usr/sbin/service mysql status,\
+                                         /usr/sbin/service mysql restart,\
+                                        /usr/bin/cat /etc/apache2/apache2.conf,\
+                                        /usr/bin/cat /etc/php/*/apache2/php.ini,\
+                                        /usr/bin/cat /var/log/apache2/error.log,\
+                                        /usr/bin/cat /var/log/mysql/error.log,\
+                                        /usr/bin/cat /etc/phpmyadmin/config.inc.php
