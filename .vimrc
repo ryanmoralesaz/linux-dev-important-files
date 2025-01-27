@@ -102,20 +102,18 @@ set t_vb=
 set belloff=all    " Disable all bell sounds
 
 " ** 8. Mappings **
-nnoremap <C_L> :nohlsearch<CR>
+nnoremap <C-L> :nohlsearch<CR>
 " Remap 'hh' in insert mode to escape to normal mode and move cursor right
 inoremap hh <Esc>l
 
 " Remap Emmet leader key from <C-Y> to <C-Z>
 "let g:user_emmet_leader_key='<TAB>'
-autocmd FileType html,css,php,blade.php imap <buffer> <Tab> <C-Y>,
+autocmd FileType html,css,php,blade imap <buffer> <Tab> <C-Y>,
 let g:user_emmet_settings = {
-    \'php':{
-    \'extends':'html'
+    \'syntax_extensions': {
+    \'php':'html',
+    \'blade':'html',
     \},
-    \'blade':{
-    \'extends':'html'
-    \}
     \}
 " ** 9. Plugins **
 
