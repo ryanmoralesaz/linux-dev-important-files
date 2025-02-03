@@ -6,7 +6,9 @@
 
 " Disable Vim compatibility mode to enable Vim-specific features
 set nocompatible
-
+" set paste
+set nofixeol
+" set binary
 " Enable file type detection, plugins, and indentation
 filetype on
 filetype plugin on
@@ -204,7 +206,20 @@ else
         let &t_EI .= "\<Esc>[2 q"
     endif
 endif
+" remove DOS carriage returns on paste
+" Better paste handling
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
 
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 " ** 13. Auto Commands **
 
 " Disable auto comments when creating new lines
