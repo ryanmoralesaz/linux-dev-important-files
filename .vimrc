@@ -62,7 +62,7 @@ set showmode
 set scrolloff=10
 
 " Do not wrap long lines
-set nowrap
+set wrap
 
 " ** 4. History and Completion **
 
@@ -83,7 +83,6 @@ set clipboard=unnamedplus
 
 " Enable mouse support in all modes
 set mouse=a
-
 " ** 6. Backup and File Formats **
 
 " Disable backup files
@@ -133,6 +132,7 @@ Plug 'sheerun/vim-polyglot'               " Comprehensive language pack covering
 Plug 'mattn/emmet-vim'                    " Emmet support for HTML & CSS
 Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
 " === Optional Enhanced Syntax Plugins ===
 " Plug 'HerringtonDarkholme/yats.vim'    " Yet another TypeScript syntax
 " Plug 'mxw/vim-jsx'                      " Enhanced JSX syntax highlighting
@@ -148,7 +148,8 @@ call plug#end()
 let g:NERTCreateDefaultMappings = 1
 nmap ,/ <Plug>NERDCommenterToggle
 vmap ,/ <Plug>NERDCommenterToggle<CR>gv
-
+let NERDTreeShowHidden=1
+command! NTT NERDTreeToggle
 " ** 10. Color Scheme Configuration **
 
 " Choose your preferred color scheme by uncommenting one of the following lines:
